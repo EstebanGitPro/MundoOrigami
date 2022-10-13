@@ -1,0 +1,7 @@
+{
+  "name": "MundoOrigami",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
