@@ -1,6 +1,6 @@
 const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigami.crosscuting/UUID");
 
-class TipoOrigami {
+class TipoOrigamiDomainBuilder {
     constructor (UUID, nombre) {
       this.UUID = UUID;
       this.nombre = nombre;
@@ -21,4 +21,4 @@ class TipoOrigami {
     set setNombre(nombre){
       return this.nombre =nombre;
     }
-  }
+}

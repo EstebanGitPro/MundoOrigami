@@ -1,6 +1,7 @@
 const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigami.crosscuting/UUID");
 
-class TutorialOrigami {
+
+class TutorialOrigamiDomainBuilder {
     constructor (UUID, Origami, PasoTutorial, descripcion) {
       this.UUID = UUID;
       this.Origami = Origami;
@@ -33,4 +34,4 @@ class TutorialOrigami {
       this.PasoTutorial = pasotutorial;
     }
 
-  }
+}
