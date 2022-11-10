@@ -2,7 +2,7 @@ const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigam
 
 const UUID = uuid.generarUuid();
 
-class PasoTutorial {
+export default class PasoTutorial {
   
 
     constructor (UUID,paso, descripcion, recurso ) {
