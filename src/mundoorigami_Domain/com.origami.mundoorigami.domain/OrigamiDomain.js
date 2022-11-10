@@ -1,32 +1,25 @@
-const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigami.crosscuting/UUID");
+//const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigami.crosscuting/UUID");
 
-  export default class Origami {
+    class Origami {
 
     constructor (UUID, nombre,TipoOrigami) {
-      this.UUID = uuid.generarUuid();
+      this.UUID = UUID;
       this.nombre = nombre;
       this.TipoOrigami = TipoOrigami;
     }
 
- 
-    create() {
-      return new {
-        UUID: this.UUID,
-        nombre: this.nombre,
-        TipoOrigami: this.TipoOrigami,
-      };
-    }
 
 
     get getUUID(){
       return this.UUID;
+      
     }
 
     set setUUID(uuid){
       this.UUID = uuid
     }
 
-    get getNombre(){
+    getNombre(){
       return this.nombre;
     }
 
@@ -42,6 +35,23 @@ const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigam
       this.TipoOrigami =  tipoorigami;
     }
 
+    build() {
+      return new {
+        UUID: this.UUID,
+        nombre: this.nombre,
+        TipoOrigami: this.TipoOrigami,
+      };
+    }
+
 
     
   }
+
+
+
+  const origami = new Origami()
+  module.exports = {origami};
+
+  console.log(origami.getNombre())
+
+ 

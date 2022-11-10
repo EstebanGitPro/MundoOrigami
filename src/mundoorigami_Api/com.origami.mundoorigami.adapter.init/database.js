@@ -15,7 +15,4 @@ app.get('/Origami', (req, res)=> {
     })
 })
 
-app.listen(4500) () =>{
-    
-    console.log('server ok');
-};
+app.listen(4500);
