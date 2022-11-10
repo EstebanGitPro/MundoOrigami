@@ -4,12 +4,18 @@ const {origami} = require("../com.origami.mundoorigami.domain/OrigamiDomain");
 class OrigamiDomainBuilder {
 
 
-    /*constructor (UUID, nombre,TipoOrigami) {
-      this.UUID = origami.setUUID(UUID);
+    constructor () {
+      this.UUID = UUID;
       this.nombre = origami.setNombre(nombre);
       this.TipoOrigami = origami.setTipoOrigami(TipoOrigami);
       this.create = origami.build();
-    }*/
+    }
+
+    create(UUID){
+
+      this.UUID = origami.setUUID(UUID);
+
+    }
     
     
   
@@ -17,12 +23,13 @@ class OrigamiDomainBuilder {
 
   const llenarDomainOrigami = new OrigamiDomainBuilder();
 
-  llenarDomainOrigami.UUID = '6378453-45-6-56567-657'//uuid.generarUuid();
+  llenarDomainOrigami.UUID = uuid.generarUuid();
   llenarDomainOrigami.nombre = 'catillo';
   llenarDomainOrigami.TipoOrigami = 'modular';
 
-  console.log('hola');
-
+  console.log(llenarDomainOrigami.UUID = uuid.generarUuid());
+  
+  //cambio para ver como le funciona a castillo en su git
 
 
 
