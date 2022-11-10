@@ -1,9 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const models = require('../../mundoorigami_Api/com.origami.mundoorigami.adapter.init');
 
 const app = express();
 
 app.get('/', (req, res)=> {
+
+    let data = {
+        nombre: 'Campana',
+        tipoOrigami : 'Modular'
+      }
+      new models (data).save( (err, result)=>{
+        console.log(err);
+        console.log (result);
+      });
+      
+
     res.json({
         message: 'Hola castillo'
     })
