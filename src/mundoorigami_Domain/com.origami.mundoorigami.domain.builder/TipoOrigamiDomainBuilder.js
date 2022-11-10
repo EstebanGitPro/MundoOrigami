@@ -1,24 +1,27 @@
 const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigami.crosscuting/UUID");
+const TipoOrigamiDomain = require("../com.origami.mundoorigami.domain/TipoOrigamiDomain");
 
 class TipoOrigamiDomainBuilder {
-    constructor (UUID, nombre) {
-      this.UUID = UUID;
-      this.nombre = nombre;
+    constructor () {
+      this.UUID = uuid.DEFAULT();
+      this.nombre = '';
     }
 
-    get getUUID(){
-      return this.UUID;
+    setUUID(){
+      this.UUID = uuid.generarUuid();
+      return this;
     }
 
-    set setUUID(uuid){
-      this.UUID = uuid
+  
+    setNombre(nombre){
+      this.nombre =nombre;
+      return this;
     }
 
-    get getNombre(){
-      return this.nombre;
+    build(){
+      return new TipoOrigamiDomain(this.UUID, this.nombre);
     }
 
-    set setNombre(nombre){
-      return this.nombre =nombre;
-    }
 }
+
+module.exports = TipoOrigamiDomainBuilder

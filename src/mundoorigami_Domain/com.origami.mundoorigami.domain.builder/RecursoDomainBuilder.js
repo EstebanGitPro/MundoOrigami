@@ -1,36 +1,34 @@
 const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigami.crosscuting/UUID");
+const RecursoDomain = require("../com.origami.mundoorigami.domain/RecursoDomain");
 
 class RecursoDoaminBuilder {
-    constructor (UUID, multimedia, descripcion) {
-      this.UUID = UUID;
-      this.multimedia = multimedia;
-      this.descripcion = descripcion;
+
+    constructor () {
+      this.UUID = uuid.DEFAULT();
+      this.multimedia = '';
+      this.descripcion = '';
     }
 
-    get getUUID(){
-      return this.UUID;
+    setUUID(){
+      this.UUID = uuid.generarUuid();
+      return this;
     }
 
-    set setUUID(uuid){
-      this.UUID = uuid
-    }
-
-    get getMultimedia(){
-      return this.multimedia;
-    }
-
-    set setMultimedia(multimedia){
+    setMultimedia(multimedia){
       this.multimedia = multimedia
+      return this;
     }
 
-    get gatDescripcion(){
-      return this.descripcion;
-    }
-
-
-    set setDescripcion(descripcion){
-
+    setDescripcion(descripcion){
       this.descripcion = descripcion;
+      return this;
+    }
+
+    build(){
+      return new RecursoDomain(this.UUID, this.multimedia,this.descripcion);
     }
 
   }
+
+  module.exports = RecursoDoaminBuilder;
+

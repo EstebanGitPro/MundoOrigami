@@ -1,40 +1,34 @@
-const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigami.crosscuting/UUID");
-const {origami} = require("../com.origami.mundoorigami.domain/OrigamiDomain");
+const {uuid} = require("../../mundoorigami_Crosscuting/com.origami.mundoorigami.crosscuting/UUID");
+const OrigamiDomain = require('../com.origami.mundoorigami.domain/OrigamiDomain');  
+
 
 class OrigamiDomainBuilder {
-
-
-    constructor () {
-      this.UUID = UUID;
-      this.nombre = origami.setNombre(nombre);
-      this.TipoOrigami = origami.setTipoOrigami(TipoOrigami);
-      this.create = origami.build();
-    }
-
-    create(UUID){
-
-      this.UUID = origami.setUUID(UUID);
-
-    }
-    
-    
-  
+  constructor() {
+    this.UUID = uuid.DEFAULT();
+    this.nombre = "";
+    this.TipoOrigami = "";
   }
 
-  const llenarDomainOrigami = new OrigamiDomainBuilder();
+  setUUID() {
+    this.UUID = uuid.generarUuid();
+    return this;
+  }
 
-  llenarDomainOrigami.UUID = uuid.generarUuid();
-  llenarDomainOrigami.nombre = 'catillo';
-  llenarDomainOrigami.TipoOrigami = 'modular';
+  setNombre(nombre) {
+    this.nombre = nombre;
+    return this;
+  }
 
-  console.log(llenarDomainOrigami.UUID = uuid.generarUuid());
-  
-  //cambio para ver como le funciona a castillo en su git
-
-
-
-
+  setTipoOrigami(tipoorigami) {
+    this.TipoOrigami = tipoorigami;
+    return this;
+  }
 
 
+  build(){
+    return new OrigamiDomain(this.UUID, this.nombre, this.TipoOrigami);
+  }
+}
 
+module.exports = OrigamiDomainBuilder;
 

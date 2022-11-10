@@ -1,37 +1,33 @@
 const { uuid } = require("../../mundoorigami_Crosscuting/com.origami.mundoorigami.crosscuting/UUID");
-
+const TutorialOrigamiDomain = require("../com.origami.mundoorigami.domain/TutorialOrigamiDomain");
 
 class TutorialOrigamiDomainBuilder {
-    constructor (UUID, Origami, PasoTutorial, descripcion) {
-      this.UUID = UUID;
-      this.Origami = Origami;
-      this.PasoTutorial = PasoTutorial;
-      this.descripcion = descripcion;
+    constructor () {
+      this.UUID = uuid.DEFAULT();
+      this.Origami = '';
+      this.PasoTutorial = 0;
+      this.descripcion = '';
     }
 
-    get getUUID(){
-      return this.UUID;
+  
+    setUUID(){
+      this.UUID = uuid.generarUuid();
+      return this;
     }
-
-    set setUUID(uuid){
-      this.UUID = uuid
-    }
-
-    get getOrigami(){
-      return this.Origami;
-    }
-
-    set setOrigami(origami){
+    setOrigami(origami){
       this.Origami = origami;
+       return this;
     }
 
-
-    get getPasoTutorial(){
-      return this.PasoTutorial;
-    }
-
-    set setPasoTutorial(pasotutorial){
+    setPasoTutorial(pasotutorial){
       this.PasoTutorial = pasotutorial;
+      return this;
+    }
+
+    build(){
+      return new TutorialOrigamiDomain(this.UUID, this.Origami , this.pasotutorial);
     }
 
 }
+
+module.exports = TutorialOrigamiDomainBuilder
